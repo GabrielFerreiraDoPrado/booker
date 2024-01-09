@@ -1,10 +1,11 @@
 package com.booker.domain.user
 
 import grails.gorm.DetachedCriteria
+import grails.compiler.GrailsCompileStatic
+
 import groovy.transform.ToString
 
 import org.codehaus.groovy.util.HashCodeHelper
-import grails.compiler.GrailsCompileStatic
 
 @GrailsCompileStatic
 @ToString(cache=true, includeNames=true, includePackage=false)
