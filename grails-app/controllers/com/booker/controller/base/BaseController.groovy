@@ -1,6 +1,7 @@
 package com.booker.controller.base
 
 import com.booker.exception.BusinessException
+
 import utils.flashmessage.FlashMessageType
 
 abstract class BaseController {
