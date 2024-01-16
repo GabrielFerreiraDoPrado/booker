@@ -1,4 +1,6 @@
-package com.booker.domain.user
+package com.booker.user
+
+import com.booker.domain.user.User
 
 import grails.events.annotation.gorm.Listener
 import grails.plugin.springsecurity.SpringSecurityService
