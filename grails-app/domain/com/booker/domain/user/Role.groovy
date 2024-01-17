@@ -1,5 +1,7 @@
 package com.booker.domain.user
 
+import com.booker.role.RoleAuthority
+
 import grails.compiler.GrailsCompileStatic
 
 import groovy.transform.EqualsAndHashCode
@@ -12,7 +14,7 @@ class Role implements Serializable {
 
 	private static final long serialVersionUID = 1
 
-	String authority
+	RoleAuthority authority
 
 	static constraints = {
 		authority nullable: false, blank: false, unique: true

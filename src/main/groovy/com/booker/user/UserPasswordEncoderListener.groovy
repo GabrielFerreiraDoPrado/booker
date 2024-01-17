@@ -1,4 +1,6 @@
-package com.booker.domain.user
+package com.booker.user
+
+import com.booker.domain.user.User
 
 import grails.events.annotation.gorm.Listener
 import grails.plugin.springsecurity.SpringSecurityService
@@ -9,7 +11,6 @@ import org.grails.datastore.mapping.engine.event.AbstractPersistenceEvent
 import org.grails.datastore.mapping.engine.event.PreInsertEvent
 import org.grails.datastore.mapping.engine.event.PreUpdateEvent
 import org.springframework.beans.factory.annotation.Autowired
-
 
 @CompileStatic
 class UserPasswordEncoderListener {

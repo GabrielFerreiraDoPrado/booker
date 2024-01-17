@@ -1,4 +1,4 @@
-package booker
+package com.booker.controller
 
 class UrlMappings {
 

@@ -1,4 +1,4 @@
-import com.booker.domain.user.UserPasswordEncoderListener
+import com.booker.user.UserPasswordEncoderListener
 // Place your Spring DSL code here
 beans = {
     userPasswordEncoderListener(UserPasswordEncoderListener)
