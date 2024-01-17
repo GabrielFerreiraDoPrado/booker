@@ -12,7 +12,6 @@ import org.grails.datastore.mapping.engine.event.PreInsertEvent
 import org.grails.datastore.mapping.engine.event.PreUpdateEvent
 import org.springframework.beans.factory.annotation.Autowired
 
-
 @CompileStatic
 class UserPasswordEncoderListener {
 
