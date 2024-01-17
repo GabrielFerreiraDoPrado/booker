@@ -1,0 +1,19 @@
+html, body {
+    min-height: 100vh;
+    background-color: white;
+}
+
+.bg-wheat {
+    background-color: #F9E0BB;
+}
+
+.btn-darkbrown {
+    background-color: #884A39;
+    color: #F9E0BB;
+    min-width: 5rem;
+}
+
+.text-navbar-title {
+    color: #884A39;
+    font-weight: 1000;
+}
