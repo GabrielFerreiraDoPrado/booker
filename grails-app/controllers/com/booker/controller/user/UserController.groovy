@@ -32,4 +32,11 @@ class UserController extends BaseController {
             redirect(action: "signUp")
         }
     }
+
+    def error() {
+        flash.message = "Não foi possível encontrar um usuário com esse e-mail e senha"
+        flash.type = FlashMessageType.ERROR
+
+        redirect(uri: request.getHeader('referer') )
+    }
 }
