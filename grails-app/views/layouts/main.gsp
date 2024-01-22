@@ -27,10 +27,18 @@
                     <p class="display-4 text-navbar-title">Booker</p>
                 </a>
 
-                <div class="container-fluid justify-content-end col">
-                    <a class="btn btn-lg btn-darkbrown mr-3" href="/user/login">Login</a>
-                    <a class="btn btn-lg btn-darkbrown mr-3" href="/user/signUp">Cadastrar</a>
-                </div>
+                <sec:ifNotLoggedIn>
+                    <div class="container-fluid justify-content-end col">
+                        <a class="btn btn-lg btn-darkbrown mr-3" href="/user/login">Login</a>
+                        <a class="btn btn-lg btn-darkbrown mr-3" href="/user/signUp">Cadastrar</a>
+                    </div>
+                </sec:ifNotLoggedIn>
+                <sec:ifLoggedIn>
+                    <div class="container-fluid justify-content-end col">
+                        <a class="btn btn-darkbrown mr-3" href="/user/myAccount">Minha Conta</a>
+                        <a class="btn btn-darkbrown mr-3" href='${request.contextPath}/logoff' method='POST'>Sair</a>
+                    </div>
+                </sec:ifLoggedIn>
             </div>
         </nav>
 
