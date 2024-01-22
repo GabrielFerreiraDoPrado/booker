@@ -3,7 +3,7 @@ package com.booker.service.user
 import com.booker.domain.user.Role
 import com.booker.domain.user.User
 import com.booker.domain.user.UserRole
-import com.booker.user.repository.UserRepository
+import com.booker.user.repository.UserRoleRepository
 
 import grails.gorm.transactions.Transactional
 
@@ -11,7 +11,7 @@ import grails.gorm.transactions.Transactional
 class UserRoleService {
 
     public void saveIfNecessary(User user, Role role) {
-        Boolean userRoleExists = UserRepository.query([user: user, role: role]).get().asBoolean()
+        Boolean userRoleExists = UserRoleRepository.query([user: user, role: role]).get().asBoolean()
         if (userRoleExists) return
 
         UserRole userRole = new UserRole()
