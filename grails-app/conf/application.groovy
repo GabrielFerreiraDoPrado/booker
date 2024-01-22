@@ -6,7 +6,7 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.booker.dom
 grails.plugin.springsecurity.authority.className = 'com.booker.domain.user.Role'
 
 grails.plugin.springsecurity.auth.loginFormUrl = '/user/login'
-grails.plugin.springsecurity.logout.afterLogoutUrl = '/user/logout'
+grails.plugin.springsecurity.logout.afterLogoutUrl = '/'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
 grails.plugin.springsecurity.failureHandler.defaultFailureUrl = '/user/error'
 grails.plugin.springsecurity.successHandler.alwaysUseDefault = false
@@ -17,6 +17,7 @@ grails.plugin.springsecurity.password.algorithm = 'bcrypt'
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 
 grails.plugin.springsecurity.interceptUrlMap = [
+		[pattern: '/user/myAccount', access: ['ROLE_USER']],
 		[pattern: '/**',          access: ['IS_AUTHENTICATED_ANONYMOUSLY']],
 ]
 
