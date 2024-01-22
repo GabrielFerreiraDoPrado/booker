@@ -13,6 +13,7 @@ import grails.gorm.transactions.Transactional
 class UserService {
 
     def roleService
+    def springSecurityService
     def userRoleService
 
     public void save(UserAdapter adapter) {
@@ -30,6 +31,14 @@ class UserService {
         userRoleService.saveIfNecessary(user, role)
     }
 
+    public User changePassword(User user, UserAdapter adapter, String currentPassword) {
+        validateChangePassword(user, adapter, currentPassword)
+
+        user.password = adapter.password
+
+        return user.save(failOnError: true)
+    }
+
     private void validateSave(UserAdapter adapter) {
         if (!adapter.username) throw new BusinessException("É necessário informar um e-mail")
 
@@ -38,5 +47,12 @@ class UserService {
 
         Boolean userExists = UserRepository.query([username: adapter.username]).get().asBoolean()
         if (userExists) throw new BusinessException("Já existe um usuário com este e-mail")
+    }
+
+    private void validateChangePassword(User user, UserAdapter adapter, String currentPassword) {
+        if (!adapter.password) throw new BusinessException("É necessário informar uma senha")
+        if (adapter.password != adapter.confirmPassword) throw new BusinessException("As senhas informadas precisam ser iguais")
+
+        if (!springSecurityService.passwordEncoder.matches(currentPassword, user.password)) throw new BusinessException("Senha incorreta")
     }
 }
