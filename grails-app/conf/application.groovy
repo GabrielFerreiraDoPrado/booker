@@ -7,7 +7,7 @@ grails.plugin.springsecurity.authority.className = 'com.booker.domain.user.Role'
 
 grails.plugin.springsecurity.auth.loginFormUrl = '/user/login'
 grails.plugin.springsecurity.logout.afterLogoutUrl = '/'
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/book/index'
 grails.plugin.springsecurity.failureHandler.defaultFailureUrl = '/user/error'
 grails.plugin.springsecurity.successHandler.alwaysUseDefault = false
 grails.plugin.springsecurity.dao.hideUserNotFoundExceptions = false

@@ -3,6 +3,10 @@ html, body {
     background-color: white;
 }
 
+a {
+    text-decoration: none;
+}
+
 .bg-wheat {
     background-color: #F9E0BB;
 }
@@ -11,9 +15,20 @@ html, body {
     background-color: #884A39;
     color: #F9E0BB;
     min-width: 5rem;
+    text-decoration: none;
 }
 
 .text-navbar-title {
     color: #884A39;
     font-weight: 1000;
+}
+
+.lowerRightFixedButton {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    height: 10rem;
+    width: 10rem;
+    font-size: 85px;
+    border-radius: 100px;
 }
