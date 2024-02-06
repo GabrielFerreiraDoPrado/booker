@@ -2,5 +2,13 @@ package com.booker.book
 
 enum Genre {
 
-    MYSTERY
+    FANTASY("Fantasia"),
+    MYSTERY("Mistério"),
+    SCIENCE_FICTION("Ficção Científica")
+
+    String name
+
+    Genre(String name) {
+        this.name = name
+    }
 }
