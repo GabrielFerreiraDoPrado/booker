@@ -16,6 +16,10 @@ class Book extends BaseEntity {
 
     String description
 
+    Integer yearPublished
+
+    String isbn
+
     static constraints = {
         description nullable: true, maxSize: 3000
     }
