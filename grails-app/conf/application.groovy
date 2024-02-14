@@ -18,6 +18,7 @@ grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 
 grails.plugin.springsecurity.interceptUrlMap = [
 		[pattern: '/user/myAccount', access: ['ROLE_USER']],
+		[pattern: '/book/**', access: ['ROLE_USER']],
 		[pattern: '/**',          access: ['IS_AUTHENTICATED_ANONYMOUSLY']],
 ]
 
