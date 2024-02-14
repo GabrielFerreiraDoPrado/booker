@@ -13,6 +13,6 @@ class BookGenreService {
         BookGenre bookGenre = new BookGenre()
         bookGenre.book = book
         bookGenre.genre = genre
-        bookGenre.save()
+        bookGenre.save(failOnError: true)
     }
 }

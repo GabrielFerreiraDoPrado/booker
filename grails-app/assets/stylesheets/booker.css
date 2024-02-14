@@ -32,3 +32,8 @@ a {
     font-size: 85px;
     border-radius: 100px;
 }
+
+.info {
+    font-size: 1rem;
+    color: #4e555b;
+}

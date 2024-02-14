@@ -20,22 +20,18 @@ class BookController extends BaseController {
 
     def save() {
         try {
-            BookAdapter adapter = new BookAdapter(params)
+            BookAdapter adapter = new BookAdapter(params, getCurrentUser())
             bookService.save(adapter)
 
             flash.message = "Livro criado com sucesso"
             flash.type = FlashMessageType.SUCCESS
-
-            redirect(controller: "book", action: "create")
         } catch (BusinessException businessException) {
             flash.message = businessException.getMessage()
             flash.type = FlashMessageType.ERROR
-
-            redirect(controller: "book", action: "create")
         } catch (Exception exception) {
             flash.message = "Erro inesperado, tente novamente mais tarde"
             flash.type = FlashMessageType.ERROR
-
+        } finally {
             redirect(controller: "book", action: "create")
         }
     }

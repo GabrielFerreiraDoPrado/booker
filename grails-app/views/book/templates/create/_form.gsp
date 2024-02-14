@@ -1,7 +1,7 @@
 <%@ page import="com.booker.book.Language"%>
 <%@ page import="com.booker.book.Genre"%>
 
-<g:form class="card-body border mt-5" name="customerForm" url="[controller: 'book', action: 'save']">
+<g:form class="card-body border mt-5" name="customerForm" url="[controller: 'book', action: 'save']" enctype="multipart/form-data">
     <h1 class="display-4 mt-0">Adicionar livro</h1>
 
     <div class="form-group">
@@ -45,14 +45,23 @@
                   optionValue="name"/>
     </div>
 
-    <div>
+    <div class="form-group">
         <label>Ano de publicação</label>
         <input class="form-control" type="number" name="yearPublished" placeholder="Ex: 1899"/>
     </div>
 
-    <div>
+    <div class="form-group">
         <label>ISBN</label>
         <input class="form-control" type="number" name="isbn" placeholder="Ex: 9786586490084"/>
+    </div>
+
+    <div class="form-group">
+        <label>Capa do livro</label>
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name="bookCover">
+            <p class="info">* O arquivo deve ter até 5 MB. Formatos aceitos: .jpg e .png</p>
+            <label class="custom-file-label">Escolha o arquivo</label>
+        </div>
     </div>
 
     <div class="navbar d-flex justify-content-space-between">
@@ -60,3 +69,5 @@
         <button class="btn btn-darkbrown mt-5 mb-4" type="submit">Salvar</button>
     </div>
 </g:form>
+<asset:javascript src="bs-custom-file-input.js"/>
+<asset:javascript src="fileInput.js"/>
