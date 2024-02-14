@@ -10,6 +10,7 @@ import grails.gorm.transactions.Transactional
 @Transactional
 class BookService {
 
+    def bookerFileService
     def bookGenreService
 
     public void save(BookAdapter adapter) {
@@ -23,7 +24,9 @@ class BookService {
         book.description = adapter.description
         book.yearPublished = adapter.yearPublished
         book.isbn = adapter.isbn
-        book.save()
+        book.bookCover = bookerFileService.save(adapter.bookCover)
+        book.owner = adapter.owner
+        book.save(failOnError: true)
 
         for (Genre genre : adapter.genreList) {
             bookGenreService.save(book, genre)
@@ -46,5 +49,7 @@ class BookService {
         if (!adapter.yearPublished) throw new BusinessException("É necessário informar o ano de publicação")
 
         if (!adapter.isbn) throw new BusinessException("É necessário informar o ISBN")
+
+        if (!adapter.bookCover.size) throw new BusinessException("É necessário anexar uma imagem da capa do livro")
     }
 }
