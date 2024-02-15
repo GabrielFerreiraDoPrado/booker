@@ -2,6 +2,11 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
+
+    <sec:ifLoggedIn>
+        <meta http-equiv="refresh" content="0; URL='/book'"/>
+    </sec:ifLoggedIn>
+
     <title>Welcome to Grails</title>
 </head>
 <body>
