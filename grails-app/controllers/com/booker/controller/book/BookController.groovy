@@ -11,7 +11,9 @@ class BookController extends BaseController {
     def bookService
 
     def index() {
-        return [:]
+        List<BookAdapter> bookAdapterList = bookService.list()
+
+        return [bookAdapterList: bookAdapterList]
     }
 
     def create() {

@@ -2,6 +2,7 @@ package com.booker.service.book
 
 import com.booker.book.Genre
 import com.booker.book.adapter.BookAdapter
+import com.booker.book.repository.BookRepository
 import com.booker.domain.book.Book
 import com.booker.exception.BusinessException
 
@@ -31,6 +32,12 @@ class BookService {
         for (Genre genre : adapter.genreList) {
             bookGenreService.save(book, genre)
         }
+    }
+
+    public List<BookAdapter> list() {
+        List<Book> bookList = BookRepository.query([:]).list()
+
+        return bookList.collect { new BookAdapter(it) }
     }
 
     private void validateSave(BookAdapter adapter) {
