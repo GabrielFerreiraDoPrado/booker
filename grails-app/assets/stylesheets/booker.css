@@ -37,3 +37,30 @@ a {
     font-size: 1rem;
     color: #4e555b;
 }
+
+.bookList {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem;
+}
+
+.bookCard {
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    cursor: pointer;
+}
+
+.bookCard:hover {
+    transform: scale(1.1);
+}
+
+.bookCard .detail img {
+    height: 280px;
+    max-width: 100%;
+}
