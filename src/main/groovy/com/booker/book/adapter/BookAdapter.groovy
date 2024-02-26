@@ -16,6 +16,8 @@ import utils.filemanager.LocalDiskManager
 
 class BookAdapter {
 
+    Long id
+
     String title
 
     String authorName
@@ -52,6 +54,7 @@ class BookAdapter {
     }
 
     public BookAdapter(Book book) {
+        this.id = book.id
         this.title = book.title
         this.authorName = book.authorName
         this.language = book.language
