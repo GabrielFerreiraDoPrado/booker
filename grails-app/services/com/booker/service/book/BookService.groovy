@@ -34,12 +34,6 @@ class BookService {
         }
     }
 
-    public List<BookAdapter> list() {
-        List<Book> bookList = BookRepository.query([:]).list()
-
-        return bookList.collect { new BookAdapter(it) }
-    }
-
     private void validateSave(BookAdapter adapter) {
         if (!adapter.title) throw new BusinessException("É necessário informar o título")
 
@@ -58,5 +52,17 @@ class BookService {
         if (!adapter.isbn) throw new BusinessException("É necessário informar o ISBN")
 
         if (!adapter.bookCover.size) throw new BusinessException("É necessário anexar uma imagem da capa do livro")
+    }
+
+    public List<BookAdapter> list() {
+        List<Book> bookList = BookRepository.query([:]).list()
+
+        return bookList.collect { new BookAdapter(it) }
+    }
+
+    public BookAdapter find(Long id) {
+        Book book = BookRepository.query(id: id).get()
+
+        return new BookAdapter(book)
     }
 }

@@ -13,6 +13,10 @@ class BookRepository {
             } else if (!Boolean.valueOf(search.includeDeleted.toString())) {
                 eq("deleted", false)
             }
+
+            if (search.containsKey("id")) {
+                eq("id", Long.valueOf(search.id.toString()))
+            }
         }
 
         return query

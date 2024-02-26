@@ -3,6 +3,7 @@ package com.booker.controller.book
 import com.booker.book.adapter.BookAdapter
 import com.booker.controller.base.BaseController
 import com.booker.exception.BusinessException
+import com.booker.user.adapter.UserAdapter
 
 import utils.flashmessage.FlashMessageType
 
@@ -36,5 +37,13 @@ class BookController extends BaseController {
         } finally {
             redirect(controller: "book", action: "create")
         }
+    }
+
+    def show() {
+        Long bookId = Long.valueOf(params.id.toString())
+        BookAdapter bookAdapter = bookService.find(bookId)
+
+        return [bookAdapter: bookAdapter,
+                currentUserAdapter: new UserAdapter(getCurrentUser())]
     }
 }
