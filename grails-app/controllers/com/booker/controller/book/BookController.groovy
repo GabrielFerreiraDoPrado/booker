@@ -46,4 +46,12 @@ class BookController extends BaseController {
         return [bookAdapter: bookAdapter,
                 currentUserAdapter: new UserAdapter(getCurrentUser())]
     }
+
+    def edit() {
+        Long bookId = Long.valueOf(params.id.toString())
+        BookAdapter bookAdapter = bookService.find(bookId)
+
+        return [bookAdapter: bookAdapter,
+                currentUserAdapter: new UserAdapter(getCurrentUser())]
+    }
 }
