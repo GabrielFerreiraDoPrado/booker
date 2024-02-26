@@ -3,16 +3,22 @@
         <div class="col-4 mr-2">
             <img class="bookCover-md" src="data:image/png;base64, ${ book.bookCoverBase64 }"/>
         </div>
-        <div class="d-flex flex-column justify-content-between">
+        <div class="d-flex flex-column justify-content-between col">
             <div>
                 <h1 class="font-weight-bold title">${ book.title }</h1>
                 <h1 class="authorName">${ book.authorName }</h1>
             </div>
 
-            <div class="mb-5">
+            <div>
                 <h3 class="font-weight-bold">Dono do livro:</h3>
                 <p>${ book.owner.username }</p>
             </div>
+
+            <g:if test="${book.owner.id == currentUser.id}">
+                <div>
+                    <a href="${createLink(controller: 'book', action: 'edit', id: book.id)}" class="col btn btn-darkbrown mb-3" type="submit">Editar</a>
+                </div>
+            </g:if>
         </div>
     </div>
     <hr class="mt-3">
