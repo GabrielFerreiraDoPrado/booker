@@ -18,6 +18,10 @@ a {
     text-decoration: none;
 }
 
+.btn-darkbrown:hover {
+    transform: scale(1.1);
+}
+
 .text-navbar-title {
     color: #884A39;
     font-weight: 1000;
