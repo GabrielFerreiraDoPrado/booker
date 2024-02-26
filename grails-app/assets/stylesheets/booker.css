@@ -23,6 +23,15 @@ a {
     font-weight: 1000;
 }
 
+.title {
+    font-size: 2.5rem;
+}
+
+.authorName {
+    color: #4e555b;
+    font-size: 2rem;
+}
+
 .lowerRightFixedButton {
     position: fixed;
     bottom: 2.5rem;
@@ -60,7 +69,12 @@ a {
     transform: scale(1.1);
 }
 
-.bookCard .detail img {
+.bookCover-sm {
     height: 280px;
+    max-width: 100%;
+}
+
+.bookCover-md {
+    height: 350px;
     max-width: 100%;
 }

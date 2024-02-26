@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta name="layout" content="main" />
-        <title>Minha conta</title>
+        <title>Listagem de livros</title>
     </head>
     <body>
         <div class="main-container">
