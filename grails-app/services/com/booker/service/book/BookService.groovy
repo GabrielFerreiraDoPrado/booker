@@ -65,4 +65,21 @@ class BookService {
 
         return new BookAdapter(book)
     }
+
+    public void update(BookAdapter adapter) {
+        Book book = BookRepository.query(id: adapter.id).get()
+        if (!book) throw new BusinessException("Livro não encontrado")
+
+        book.title = adapter.title ?: book.title
+        book.authorName = adapter.authorName ?: book.authorName
+        book.language = adapter.language ?: book.language
+        book.publisher = adapter.publisher ?: book.publisher
+        book.description = adapter.description ?: book.description
+        book.yearPublished = adapter.yearPublished ?: book.yearPublished
+        book.isbn = adapter.isbn ?: book.isbn
+        book.bookCover = adapter.bookCover.isEmpty() ? book.bookCover : bookerFileService.update(book.bookCover, adapter.bookCover)
+        book.save(failOnError: true)
+
+        bookGenreService.updateGenreList(book, adapter.genreList)
+    }
 }

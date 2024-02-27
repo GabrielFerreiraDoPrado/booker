@@ -34,6 +34,19 @@ class BookerFileService {
         if (!acceptedDocumentTypes.contains(fileExtension)) throw new BusinessException("Formato de arquivo não permitido")
     }
 
+    public BookerFile update(BookerFile oldBookCover, MultipartFile newBookCover) {
+        delete(oldBookCover)
+
+        return save(newBookCover)
+    }
+
+    private void delete(BookerFile bookerFile) {
+        FileManager manager = new LocalDiskManager(FileManagerResourceName.BOOK_COVER)
+        manager.delete(bookerFile.name)
+
+        bookerFile.delete(failOnError: true)
+    }
+
     private String getExtension(MultipartFile file) {
         if (!file.originalFilename) return ""
 
