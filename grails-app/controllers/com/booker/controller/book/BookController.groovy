@@ -46,4 +46,30 @@ class BookController extends BaseController {
         return [bookAdapter: bookAdapter,
                 currentUserAdapter: new UserAdapter(getCurrentUser())]
     }
+
+    def edit() {
+        Long bookId = Long.valueOf(params.id.toString())
+        BookAdapter bookAdapter = bookService.find(bookId)
+
+        return [bookAdapter: bookAdapter,
+                currentUserAdapter: new UserAdapter(getCurrentUser())]
+    }
+
+    def update() {
+        try {
+            BookAdapter adapter = new BookAdapter(params)
+            bookService.update(adapter, getCurrentUser())
+
+            flash.message = "Livro alterado com sucesso"
+            flash.type = FlashMessageType.SUCCESS
+        } catch (BusinessException businessException) {
+            flash.message = businessException.getMessage()
+            flash.type = FlashMessageType.ERROR
+        } catch (Exception exception) {
+            flash.message = "Erro inesperado, tente novamente mais tarde"
+            flash.type = FlashMessageType.ERROR
+        } finally {
+            redirect(controller: "book", action: "show", id: params.id)
+        }
+    }
 }

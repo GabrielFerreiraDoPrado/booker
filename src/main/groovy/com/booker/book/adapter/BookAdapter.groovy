@@ -53,6 +53,19 @@ class BookAdapter {
         this.owner = owner
     }
 
+    public BookAdapter(Map params) {
+        this.id = Long.valueOf(params.id.toString())
+        this.title = params.title
+        this.authorName = params.authorName
+        this.language = params.language ? Language.valueOf(params.language) : null
+        this.publisher = params.publisher
+        this.description = params.description
+        this.genreList = parseGenreList(params.genreList)
+        this.yearPublished = params.yearPublished ? Integer.valueOf(params.yearPublished) : null
+        this.isbn = params.isbn
+        this.bookCover = params.bookCover
+    }
+
     public BookAdapter(Book book) {
         this.id = book.id
         this.title = book.title
