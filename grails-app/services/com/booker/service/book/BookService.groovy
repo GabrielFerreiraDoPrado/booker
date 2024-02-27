@@ -4,6 +4,7 @@ import com.booker.book.Genre
 import com.booker.book.adapter.BookAdapter
 import com.booker.book.repository.BookRepository
 import com.booker.domain.book.Book
+import com.booker.domain.user.User
 import com.booker.exception.BusinessException
 
 import grails.gorm.transactions.Transactional
@@ -66,7 +67,9 @@ class BookService {
         return new BookAdapter(book)
     }
 
-    public void update(BookAdapter adapter) {
+    public void update(BookAdapter adapter, User currentUser) {
+        if (currentUser != adapter.owner) throw new BusinessException("Você não tem permissão para editar este livro")
+
         Book book = BookRepository.query(id: adapter.id).get()
         if (!book) throw new BusinessException("Livro não encontrado")
 

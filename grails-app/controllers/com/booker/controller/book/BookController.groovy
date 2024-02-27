@@ -58,7 +58,7 @@ class BookController extends BaseController {
     def update() {
         try {
             BookAdapter adapter = new BookAdapter(params)
-            bookService.update(adapter)
+            bookService.update(adapter, getCurrentUser())
 
             flash.message = "Livro alterado com sucesso"
             flash.type = FlashMessageType.SUCCESS
