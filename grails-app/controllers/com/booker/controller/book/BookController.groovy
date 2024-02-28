@@ -72,4 +72,20 @@ class BookController extends BaseController {
             redirect(controller: "book", action: "show", id: params.id)
         }
     }
+
+    def request() {
+        try {
+            Long bookId = Long.valueOf(params.id.toString())
+            bookService.request(bookId, getCurrentUser())
+
+        } catch (BusinessException businessException) {
+            flash.message = businessException.getMessage()
+            flash.type = FlashMessageType.ERROR
+        } catch (Exception exception) {
+            flash.message = "Erro inesperado, tente novamente mais tarde"
+            flash.type = FlashMessageType.ERROR
+        } finally {
+            redirect(controller: "book", action: "show", id: params.id)
+        }
+    }
 }

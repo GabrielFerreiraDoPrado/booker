@@ -85,4 +85,20 @@ class BookService {
 
         bookGenreService.updateGenreList(book, adapter.genreList)
     }
+
+    public void request(Long bookId, User currentUser) {
+        Book book = BookRepository.query(id: bookId).get()
+        validateRequest(book, currentUser)
+
+        book.currentReader = currentUser
+        book.save(failOnError: true)
+    }
+
+    private void validateRequest(Book book, User currentUser) {
+        if (!book) throw new BusinessException("Livro não encontrado")
+
+        if (currentUser == book.owner) throw new BusinessException("Você não pode solicitar um livro próprio")
+
+        if (book.currentReader) throw new BusinessException("Livro já está emprestado")
+    }
 }

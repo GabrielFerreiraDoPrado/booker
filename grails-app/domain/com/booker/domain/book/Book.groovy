@@ -25,7 +25,10 @@ class Book extends BaseEntity {
 
     User owner
 
+    User currentReader
+
     static constraints = {
         description nullable: true, maxSize: 3000
+        currentReader nullable: true
     }
 }

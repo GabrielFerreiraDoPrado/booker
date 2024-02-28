@@ -40,6 +40,8 @@ class BookAdapter {
 
     User owner
 
+    User currentReader
+
     public BookAdapter(Map params, User owner) {
         this.title = params.title
         this.authorName = params.authorName
@@ -78,6 +80,7 @@ class BookAdapter {
         this.isbn = book.isbn
         this.owner = book.owner
         this.bookCoverBase64 = encodeBookCover(book.bookCover)
+        this.currentReader = book.currentReader
     }
 
     private List<Genre> parseGenreList(Object genreGroup) {
