@@ -11,6 +11,7 @@
 
         <asset:javascript src="jquery-3.5.1.js"/>
         <asset:stylesheet src="application.css"/>
+        <asset:stylesheet src="notificationDropdownCss.css"/>
         <asset:stylesheet src="booker.css"/>
 
         <asset:javascript src="FlashMessageController.js"/>
@@ -36,6 +37,14 @@
                 </sec:ifNotLoggedIn>
                 <sec:ifLoggedIn>
                     <div class="container-fluid justify-content-end col">
+                        <div class="js-notification-container">
+                            <btn class="btn btn-lg btn-darkbrown mr-3 js-btn-notification">
+                                <asset:image class="js-notification" src="bell.svg"/>
+                            </btn>
+
+                            <div class="js-dropdown-menu dropdown-menu navbar-dark bg-secondary" aria-labelledby="dropdownMenuButton">
+                            </div>
+                        </div>
                         <a class="btn btn-darkbrown mr-3" href="/user/myAccount">Minha Conta</a>
                         <a class="btn btn-darkbrown mr-3" href='${request.contextPath}/logoff' method='POST'>Sair</a>
                     </div>
@@ -54,6 +63,6 @@
         </div>
 
         <asset:javascript src="application.js"/>
-
+        <asset:javascript src="NotificationDropdownController.js"/>
     </body>
 </html>
