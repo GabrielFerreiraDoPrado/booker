@@ -1,3 +1,7 @@
+<%
+    Boolean isBookBorrowed = book.currentReader != null
+%>
+
 <div class="card border border-secondary rounded col-6 mt-3 p-4 mb-5">
     <div class="d-flex flex-row">
         <div class="col-4 mr-2">
@@ -19,6 +23,13 @@
                     <a href="${createLink(controller: 'book', action: 'edit', id: book.id)}" class="col btn btn-darkbrown mb-3" type="submit">Editar</a>
                 </div>
             </g:if>
+            <g:else>
+                <div>
+                    <a href="${createLink(controller: 'book', action: 'request', id: book.id)}"
+                       class="col btn btn-darkbrown ${isBookBorrowed ? 'disabled' : ''} mb-3"
+                       type="submit">Solicitar</a>
+                </div>
+            </g:else>
         </div>
     </div>
     <hr class="mt-3">
