@@ -78,6 +78,8 @@ class BookController extends BaseController {
             Long bookId = Long.valueOf(params.id.toString())
             bookService.request(bookId, getCurrentUser())
 
+            flash.message = "Livro solicitado com sucesso"
+            flash.type = FlashMessageType.SUCCESS
         } catch (BusinessException businessException) {
             flash.message = businessException.getMessage()
             flash.type = FlashMessageType.ERROR
