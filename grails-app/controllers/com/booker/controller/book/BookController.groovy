@@ -12,9 +12,18 @@ class BookController extends BaseController {
     def bookService
 
     def index() {
-        List<BookAdapter> bookAdapterList = bookService.list()
+        Map search = parseSearchParams(params)
+        List<BookAdapter> bookAdapterList = bookService.list(search)
 
-        return [bookAdapterList: bookAdapterList]
+        return [bookAdapterList: bookAdapterList,
+                titleLike: search."title[like]"]
+    }
+
+    private Map parseSearchParams(Map params) {
+        Map search = [:]
+        if (params."title[like]") search."title[like]" = params."title[like]"
+
+        return search
     }
 
     def create() {
