@@ -12,7 +12,7 @@ class Notification {
 
     Book book
 
-    Boolean isRead
+    Boolean isRead = false
 
     User user
 }

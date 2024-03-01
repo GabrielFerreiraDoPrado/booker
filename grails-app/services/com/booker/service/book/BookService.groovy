@@ -14,6 +14,7 @@ class BookService {
 
     def bookerFileService
     def bookGenreService
+    def notificationService
 
     public void save(BookAdapter adapter) {
         validateSave(adapter)
@@ -92,6 +93,8 @@ class BookService {
 
         book.currentReader = currentUser
         book.save(failOnError: true)
+
+        notificationService.confirmBookRequest(book, currentUser)
     }
 
     private void validateRequest(Book book, User currentUser) {
