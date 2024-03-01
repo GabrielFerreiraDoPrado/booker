@@ -48,4 +48,11 @@ class NotificationService {
 
         notification.save(failOnError: true)
     }
+
+    public Notification read(Long notificationId) {
+        Notification notification = NotificationRepository.query([id: notificationId, ignoreUser: true]).get()
+        notification.isRead = true
+
+        return notification.save(failOnError: true)
+    }
 }
