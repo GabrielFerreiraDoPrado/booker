@@ -7,6 +7,40 @@ a {
     text-decoration: none;
 }
 
+.bg-image {
+    background-image: url("../images/banner.jpg");
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    height: 91.5%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.index-text-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 80%;
+    padding: 20px;
+    text-align: justify-all;
+}
+
+.index-title {
+    font-family: Sora, sans-serif;
+    user-select: none;
+    font-weight: bold;
+    color: white;
+}
+
+.index-subtitle {
+    font-size: 1.5rem;
+    color: white;
+    user-select: none;
+}
+
 .bg-wheat {
     background-color: #F9E0BB;
 }
