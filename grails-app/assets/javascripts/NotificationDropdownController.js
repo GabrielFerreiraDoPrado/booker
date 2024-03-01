@@ -42,7 +42,7 @@ function NotificationDropdownController() {
 
     _this.setNotificationDropdownContent = function(notificationItem) {
         _this.notificationDropdownMenu.append(`
-            <a class="text-decoration-none" href="/book/show/${notificationItem.bookId}">
+            <a class="text-decoration-none" href="/notification/read/${notificationItem.id}">
                 <div class="d-flex flex-column px-2 mt-2 mb-3 bg-white rounded-lg mx-2" style="cursor: pointer">
                     <span class="font-weight-bold text-dark" style="font-size: 1rem;">
                         ${notificationItem.title}
