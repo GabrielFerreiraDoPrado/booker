@@ -17,6 +17,10 @@ class BookRepository {
             if (search.containsKey("id")) {
                 eq("id", Long.valueOf(search.id.toString()))
             }
+
+            if (search.containsKey("title[like]")) {
+                like("title", "%" + search."title[like]" + "%")
+            }
         }
 
         return query

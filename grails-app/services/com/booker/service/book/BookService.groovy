@@ -56,8 +56,8 @@ class BookService {
         if (!adapter.bookCover.size) throw new BusinessException("É necessário anexar uma imagem da capa do livro")
     }
 
-    public List<BookAdapter> list() {
-        List<Book> bookList = BookRepository.query([:]).list()
+    public List<BookAdapter> list(Map search) {
+        List<Book> bookList = BookRepository.query(search).list()
 
         return bookList.collect { new BookAdapter(it) }
     }
