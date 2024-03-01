@@ -18,7 +18,8 @@ Este projeto utiliza a versão `5.3.5` do Grails.
 
 MySQL Server 8.0.36
 
-- Crie o schema `booker`
+1. Crie o schema `booker`
+2. Crie um user com acesso ao schema e adicione as credenciais no application.yml do projeto
 
 ## Como rodar o projeto
 
