@@ -23,6 +23,13 @@
                     <a href="${createLink(controller: 'book', action: 'edit', id: book.id)}" class="col btn btn-darkbrown mb-3" type="submit">Editar</a>
                 </div>
             </g:if>
+            <g:elseif test="${book.currentReader?.id == currentUser.id}">
+                <div>
+                    <a href="${createLink(controller: 'book', action: 'returnBook', id: book.id)}"
+                       class="col btn btn-darkbrown mb-3"
+                       type="submit">Devolver</a>
+                </div>
+            </g:elseif>
             <g:else>
                 <div>
                     <a href="${createLink(controller: 'book', action: 'request', id: book.id)}"

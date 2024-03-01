@@ -38,4 +38,14 @@ class NotificationService {
 
         notification.save(failOnError: true)
     }
+
+    public void confirmBookReturn(Book book, User user) {
+        Notification notification = new Notification()
+        notification.type = NotificationType.BOOK_RETURNED
+        notification.message = "Livro ${book.title} devolvido por ${user.username}"
+        notification.book = book
+        notification.user = book.owner
+
+        notification.save(failOnError: true)
+    }
 }

@@ -104,4 +104,20 @@ class BookService {
 
         if (book.currentReader) throw new BusinessException("Livro já está emprestado")
     }
+
+    public void returnBook(Long bookId, User currentUser) {
+        Book book = BookRepository.query(id: bookId).get()
+        validateReturn(book, currentUser)
+
+        book.currentReader = null
+        book.save(failOnError: true)
+
+        notificationService.confirmBookReturn(book, currentUser)
+    }
+
+    private void validateReturn(Book book, User currentUser) {
+        if (!book) throw new BusinessException("Livro não encontrado")
+
+        if (currentUser != book.currentReader) throw new BusinessException("Você não pode devolver um livro que não está com você")
+    }
 }
