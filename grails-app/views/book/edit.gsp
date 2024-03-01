@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta name="layout" content="main" />
-        <title>Detalhes do livro</title>
+        <title>Editar livro</title>
     </head>
     <body>
         <div class="container my-8 d-flex justify-content-center-center col-6">
