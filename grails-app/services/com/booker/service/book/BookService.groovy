@@ -57,7 +57,7 @@ class BookService {
     }
 
     public List<BookAdapter> list(Map search) {
-        List<Book> bookList = BookRepository.query(search).list()
+        List<Book> bookList = BookRepository.query(search).order("id", "desc").list()
 
         return bookList.collect { new BookAdapter(it) }
     }
